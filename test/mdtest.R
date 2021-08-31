@@ -9,7 +9,7 @@ f =  grep('/Data/', f0, value = TRUE)
 f_yaml_length <- unlist(lapply(f, function(x) length(unlist(yaml.load_file(x)))))
 
 if(any(f_yaml_length<15)) {
-    stop(' < 5')
+    warning(' < 5')
 }
 
 md_Stat = function(x, section = templateNames) {

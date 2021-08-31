@@ -7,10 +7,8 @@ on:
 name: test-data
 
 jobs:
-  test-data:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-
-
     steps:
       - uses: actions/checkout@v2
 
@@ -18,7 +16,6 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages('formattable')
           install.packages('yaml')
         shell: Rscript {0}
 
@@ -29,9 +26,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-
       - name: Test data
         run: |
-          cd test
-          Rscript -e mdtest.R
-        shell: Rscript {0}
+          cd ${{ github.workspace }}/test 
+          Rscript mdtest.R

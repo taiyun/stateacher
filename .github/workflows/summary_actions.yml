@@ -20,7 +20,8 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages('remotes')
+          install.packages('formattable')
+          install.packages('yaml')
         shell: Rscript {0}
 
       - name: Cache R packages
@@ -30,11 +31,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-      - name: Install dependencies
-        run: |
-          install.packages(c("remotes"))
-          remotes::install_cran("rmarkdown")
-        shell: Rscript {0}
 
       - name: Test data
         run: rmarkdown::render('tools/summary.Rmd')

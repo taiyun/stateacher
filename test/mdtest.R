@@ -1,6 +1,6 @@
 library(yaml)
  
-
+setwd('/home/runner/work/stateacher/stateacher/')
  
 f0 = list.files(pattern = paste0('.*md$'), 
                 recursive = TRUE, full.names = TRUE)

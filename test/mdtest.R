@@ -2,8 +2,10 @@ library(yaml)
  
 
  
-f <- list.files('./Data/', pattern = paste0('.*md$'), 
+f0 = list.files(pattern = paste0('.*md$'), 
                 recursive = TRUE, full.names = TRUE)
+f =  grep('/Data/', f0, value = TRUE)  
+
 f_yaml_length <- unlist(lapply(f, function(x) length(unlist(yaml.load_file(x)))))
 
 if(any(f_yaml_length<15)) {

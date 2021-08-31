@@ -37,5 +37,5 @@ jobs:
         shell: Rscript {0}
 
       - name: Test data
-        run: rmarkdown::render('tools/summary.Rmd', output_file = 'Data/CMU-DS/CMU-DS-summary.html')
+        run: rmarkdown::render('tools/summary.Rmd')
         shell: Rscript {0}

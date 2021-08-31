@@ -33,5 +33,5 @@ jobs:
 
 
       - name: Test data
-        run: rmarkdown::render('tools/summary.Rmd')
+        run: Rscript -e ./test/mdtest.R
         shell: Rscript {0}

@@ -33,5 +33,5 @@ jobs:
 
 
       - name: Test data
-        run: Rscript -e ./test/mdtest.R
+        run: cd test; Rscript -e mdtest.R
         shell: Rscript {0}
